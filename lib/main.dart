@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   void answerQuestion() {
-    print('Answeredasdasd');
+    print('answered');
   }
 
   const MyApp({Key? key}) : super(key: key);
