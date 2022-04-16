@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var idxQuestion = 0;
   void answerQuestion() {
-    print('answered');
+    setState(() {
+      idxQuestion += 1;
+    });
+
+    print('asd');
   }
 
-  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var questions = ['what\'s is my name', 'what\'s is your name'];
+    var questions = [
+      'what\'s is my name',
+      'what\'s is your name',
+    ];
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -20,7 +36,7 @@ class MyApp extends StatelessWidget {
           ),
           body: Column(
             children: [
-              Text('Question'),
+              Text(questions[idxQuestion]),
               RaisedButton(
                 child: Text('Answer 1'),
                 onPressed: answerQuestion,
